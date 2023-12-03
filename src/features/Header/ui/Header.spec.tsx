@@ -1,8 +1,8 @@
-import renderer from 'react-test-renderer';
 import React from 'react';
+import renderer from 'react-test-renderer';
 
-import {HeaderComponent} from './Header';
 import {IUser} from '../../../types';
+import {HeaderComponent} from './Header';
 
 describe.skip('Header', () => {
   const user: IUser = {
