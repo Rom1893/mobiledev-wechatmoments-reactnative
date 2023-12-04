@@ -9,10 +9,10 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {BasicStyle, IUser, RootState} from './../../../types';
-import {useAppDispatch} from './../../../hooks';
-import {fetchUser} from '../state/user.thunk';
 import {connect} from 'react-redux';
+import {fetchUser} from '../state/user.thunk';
+import {useAppDispatch} from './../../../hooks';
+import {BasicStyle, IUser, RootState} from './../../../types';
 
 interface IHeaderProps {
   user: IUser;
