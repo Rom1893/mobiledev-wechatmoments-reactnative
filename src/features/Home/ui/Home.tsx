@@ -1,18 +1,16 @@
-import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import {Header} from '../../Header/ui/Header';
 import {TweetList} from '../../TweetList/ui/TweetList';
 
-class Home extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Header />
-        <TweetList />
-      </View>
-    );
-  }
-}
+const Home = () => {
+  return (
+    <View style={styles.container}>
+      <Header />
+      <TweetList />
+    </View>
+  );
+};
 
 export default Home;
 

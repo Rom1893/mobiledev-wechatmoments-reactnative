@@ -3,10 +3,10 @@ import {StyleSheet, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 
-import {BasicStyle, ITweet, RootState} from './../../../types';
 import {Tweet} from './../../../features/Tweet/ui/Tweet';
-import {useAppDispatch} from './../../../hooks';
 import {fetchUserTweets} from './../../../features/TweetList/state/tweets.thunk';
+import {useAppDispatch} from './../../../hooks';
+import {BasicStyle, ITweet, RootState} from './../../../types';
 
 interface ITweetListProps {
   tweets: Array<ITweet>;

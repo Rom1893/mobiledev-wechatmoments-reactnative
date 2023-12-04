@@ -12,7 +12,7 @@ const initialState: IUserState = {
   status: RequestStatus.IDLE,
 };
 const userSlice = createSlice({
-  name: 'tweets',
+  name: 'user',
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<IUserState>) => {

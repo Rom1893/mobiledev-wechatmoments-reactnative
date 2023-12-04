@@ -30,7 +30,7 @@ export function HeaderComponent({user}: IHeaderProps): ReactElement {
       <ImageBackground
         style={styles.backgroundImage}
         source={{
-          uri: user.profileImage,
+          uri: user['profile-image'],
         }}>
         <View style={styles.userWrapper}>
           <Text testID="header-username" style={styles.text}>

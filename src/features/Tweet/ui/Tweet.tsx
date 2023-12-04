@@ -2,10 +2,10 @@ import React, {ReactElement} from 'react';
 import {
   Image,
   StyleSheet,
-  View,
   Text,
-  ViewStyle,
   TextStyle,
+  View,
+  ViewStyle,
 } from 'react-native';
 
 import {BasicStyle, ITweet} from '../../../types';
@@ -44,7 +44,7 @@ export function Tweet({tweet}: ITweetProps): ReactElement {
             {tweet.images.map((image, index) => (
               <Image
                 testID="tweet-image"
-                key={image?.url || `image-${index}`}
+                key={`${index}-${image?.url}`}
                 style={styles.image}
                 source={{
                   uri: image?.url || '',
