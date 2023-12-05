@@ -2,15 +2,15 @@ import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
 interface CameraSvgProps {
-  color?: string; // Add more props as needed
+  color?: string;
   width?: string;
   height?: string;
 }
 
 const CameraSvg = ({
   color = '#fff',
-  width = '20px',
-  height = '20px',
+  width = '24px',
+  height = '24px',
 }: CameraSvgProps) => {
   return (
     <Svg fill={color} height={height} width={width} viewBox="0 0 487 487">

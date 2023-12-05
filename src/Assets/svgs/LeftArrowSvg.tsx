@@ -2,15 +2,15 @@ import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
 interface LeftArrowProps {
-  color?: string; // Add more props as needed
+  color?: string;
   width?: string;
   height?: string;
 }
 
 const LeftArrowSvg = ({
   color = '#fff',
-  width = '18px',
-  height = '18px',
+  width = '16px',
+  height = '16px',
 }: LeftArrowProps) => {
   return (
     <Svg fill={color} height={height} width={width} viewBox="0 0 330 330">

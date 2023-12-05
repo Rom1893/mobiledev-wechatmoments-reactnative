@@ -1,27 +1,47 @@
-import React, {ReactElement} from 'react';
+import React, {ReactElement, useState} from 'react';
 import {
   Image,
+  LayoutAnimation,
+  Platform,
   StyleSheet,
   Text,
   TextStyle,
+  TouchableOpacity,
+  UIManager,
   View,
   ViewStyle,
 } from 'react-native';
 
+import CommentSvg from '../../../Assets/svgs/CommentSvg';
 import {BasicStyle, ITweet} from '../../../types';
 
 interface ITweetProps {
   tweet: ITweet;
 }
 
+if (
+  Platform.OS === 'android' &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
 export function Tweet({tweet}: ITweetProps): ReactElement {
+  const [showComments, setShowComments] = useState(false);
+  const isSingleImage = tweet?.images?.length === 1;
+
+  const toggleComments = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setShowComments(!showComments);
+  };
+
   if (!tweet.sender) {
     return <></>;
   }
   return (
     <View testID="tweet-wrapper" style={styles.container}>
       <Image
-        style={styles.image}
+        style={styles.avatar}
         source={{
           uri: tweet?.sender?.avatar || '',
           width: 40,
@@ -48,10 +68,29 @@ export function Tweet({tweet}: ITweetProps): ReactElement {
                 style={styles.image}
                 source={{
                   uri: image?.url || '',
-                  width: 64,
-                  height: 64,
+                  width: isSingleImage ? 150 : 64,
+                  height: isSingleImage ? 150 : 64,
                 }}
               />
+            ))}
+          </View>
+        )}
+        {tweet.comments && (
+          <TouchableOpacity onPress={toggleComments} style={styles.commentIcon}>
+            <CommentSvg />
+          </TouchableOpacity>
+        )}
+        {showComments && tweet.comments && (
+          <View testID="tweet-comments-wrapper" style={styles.commentsWrapper}>
+            {tweet.comments.map((comment, index) => (
+              <Text
+                key={`${index}-${comment.sender.username}`}
+                style={styles.comment}>
+                <Text style={styles.commentSender}>
+                  {comment.sender.nick || comment.sender.username}:
+                </Text>{' '}
+                {comment.content}
+              </Text>
             ))}
           </View>
         )}
@@ -79,14 +118,18 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
     borderBottomColor: 'lightgrey',
     borderBottomWidth: 1,
   },
+  avatar: {
+    marginRight: 16,
+    borderRadius: 10,
+  },
   image: {
     marginRight: 16,
-    backgroundColor: '#e4f0f5',
+    borderRadius: 10,
+    marginTop: 8,
   },
   imagesWrapper: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    paddingTop: 8,
     paddingBottom: 8,
   },
   tweetContainer: {
@@ -100,5 +143,19 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
   sender: {
     color: '#4152c9',
     fontWeight: '600',
+  },
+  commentsWrapper: {
+    paddingTop: 8,
+  },
+  comment: {
+    color: '#333',
+    marginBottom: 4,
+  },
+  commentSender: {
+    fontWeight: 'bold',
+  },
+  commentIcon: {
+    alignSelf: 'flex-start',
+    marginTop: 5,
   },
 });

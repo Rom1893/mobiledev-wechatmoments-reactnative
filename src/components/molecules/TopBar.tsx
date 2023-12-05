@@ -17,21 +17,21 @@ const TopBar = () => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 30,
-    backgroundColor: '#313237',
+    height: 32,
+    backgroundColor: '#757575',
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingHorizontal: 10, // Add padding on the sides
+    paddingHorizontal: 8, // Add padding on the sides
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 24,
     color: 'white',
   },
   icon: {
-    width: 25,
-    height: 25,
+    width: 24,
+    height: 24,
   },
 });
 

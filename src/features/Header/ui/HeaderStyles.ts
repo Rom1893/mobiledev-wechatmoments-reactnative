@@ -22,15 +22,15 @@ const styles: Partial<BasicStyle> & AdditionalStyles = StyleSheet.create<
     marginBottom: -24,
     marginRight: 24,
     backgroundColor: '#e4f0f5',
-    borderRadius: 10,
+    borderRadius: 8,
     borderWidth: 3, // Width of the border
     borderColor: '#e8cee7', // Color of the border
     borderStyle: 'solid',
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 20, //* New Style
-    marginRight: 20,
+    fontSize: 24, //* New Style
+    marginRight: 16,
     color: '#f5f5f5', //* New Style
   },
   backgroundImage: {

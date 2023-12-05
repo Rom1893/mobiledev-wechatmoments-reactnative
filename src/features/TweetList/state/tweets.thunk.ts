@@ -15,7 +15,16 @@ export const fetchUserTweets = createAsyncThunk(
           new AxiosError(`Request error: ${response.status} code`),
         );
       }
-      return response.data as Array<ITweet>;
+      /**
+       * *Logic to filter out tweets without any content
+       */
+      const validTweets = response.data.filter(
+        (tweet: ITweet) =>
+          tweet.content ||
+          (tweet.images && tweet.images.length > 0) ||
+          (tweet.comments && tweet.comments.length > 0),
+      );
+      return validTweets as Array<ITweet>;
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
     }
