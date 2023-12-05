@@ -5,9 +5,11 @@ import {TweetList} from '../../TweetList/ui/TweetList';
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.bigContainer}>
       <TopBar />
-      <TweetList />
+      <View style={styles.container}>
+        <TweetList />
+      </View>
     </View>
   );
 };
@@ -16,6 +18,11 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bigContainer: {
     flex: 1,
   },
 });

@@ -140,7 +140,7 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
     flexWrap: 'wrap',
     flexShrink: 1,
     color: '#a1a1a1',
-    paddingRight: 80,
+    paddingRight: 16,
     textAlign: 'justify',
   },
   sender: {
