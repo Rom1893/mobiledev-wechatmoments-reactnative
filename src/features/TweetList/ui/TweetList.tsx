@@ -3,6 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 
+import {Header} from '../../Header/ui/Header';
 import {Tweet} from './../../../features/Tweet/ui/Tweet';
 import {fetchUserTweets} from './../../../features/TweetList/state/tweets.thunk';
 import {useAppDispatch} from './../../../hooks';
@@ -23,6 +24,7 @@ function TweetListComponent({tweets}: ITweetListProps): ReactElement {
   return (
     <View style={styles.container}>
       <FlatList
+        ListHeaderComponent={<Header />}
         data={tweets}
         renderItem={tweet => <Tweet tweet={tweet.item} />}
       />
@@ -41,9 +43,6 @@ const styles: Partial<BasicStyle> = StyleSheet.create<Partial<BasicStyle>>({
   container: {
     backgroundColor: 'white',
     flex: 1,
-    paddingBottom: 8,
-    paddingRight: 8,
-    paddingLeft: 8,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },

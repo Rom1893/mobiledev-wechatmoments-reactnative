@@ -15,12 +15,12 @@ const styles: Partial<BasicStyle> & AdditionalStyles = StyleSheet.create<
   Partial<BasicStyle> & AdditionalStyles
 >({
   container: {
-    height: 230,
+    height: 232,
     backgroundColor: 'white',
   },
   image: {
     marginBottom: -24,
-    marginRight: 24,
+    marginRight: 80,
     backgroundColor: '#e4f0f5',
     borderRadius: 8,
     borderWidth: 3, // Width of the border

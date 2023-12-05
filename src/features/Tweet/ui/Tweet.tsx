@@ -117,6 +117,7 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
     paddingRight: 8,
     borderBottomColor: 'lightgrey',
     borderBottomWidth: 1,
+    marginLeft: 8,
   },
   avatar: {
     marginRight: 16,
@@ -139,6 +140,8 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
     flexWrap: 'wrap',
     flexShrink: 1,
     color: '#a1a1a1',
+    paddingRight: 80,
+    textAlign: 'justify',
   },
   sender: {
     color: '#4152c9',
