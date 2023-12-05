@@ -1,18 +1,11 @@
 import React, {ReactElement, useEffect} from 'react';
-import {
-  Image,
-  ImageBackground,
-  ImageStyle,
-  StyleSheet,
-  Text,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {Image, ImageBackground, Text, View} from 'react-native';
 
 import {connect} from 'react-redux';
 import {fetchUser} from '../state/user.thunk';
 import {useAppDispatch} from './../../../hooks';
-import {BasicStyle, IUser, RootState} from './../../../types';
+import {IUser, RootState} from './../../../types';
+import styles from './HeaderStyles';
 
 interface IHeaderProps {
   user: IUser;
@@ -23,6 +16,7 @@ export function HeaderComponent({user}: IHeaderProps): ReactElement {
 
   useEffect(() => {
     dispatch(fetchUser('jsmith'));
+    //! Jsmith Not necessary as we are already importing a user.json
   }, [dispatch]);
 
   return (
@@ -56,39 +50,3 @@ const mapStateToProps = (state: RootState) =>
   } as IHeaderProps);
 
 export const Header = connect(mapStateToProps)(HeaderComponent);
-
-interface AdditionalStyles {
-  backgroundImage: ImageStyle;
-  userWrapper: ViewStyle;
-}
-
-const styles: Partial<BasicStyle> & AdditionalStyles = StyleSheet.create<
-  Partial<BasicStyle> & AdditionalStyles
->({
-  container: {
-    height: 230,
-    backgroundColor: 'white',
-  },
-  image: {
-    marginBottom: -24,
-    marginRight: 24,
-    backgroundColor: '#e4f0f5',
-  },
-  text: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    marginRight: 20,
-  },
-  backgroundImage: {
-    width: '100%',
-    height: 200,
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    backgroundColor: '#f5f5f5',
-  },
-  userWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-});
