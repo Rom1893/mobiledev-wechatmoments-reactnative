@@ -12,7 +12,7 @@ const MainNavigation = (): ReactElement => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{title: 'Moments', headerTransparent: true}}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>

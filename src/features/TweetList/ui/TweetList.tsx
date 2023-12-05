@@ -17,6 +17,7 @@ function TweetListComponent({tweets}: ITweetListProps): ReactElement {
 
   useEffect(() => {
     dispatch(fetchUserTweets('jsmith'));
+    //! Jsmith Not necessary as we are already importing a tweets.json
   }, [dispatch]);
 
   return (
