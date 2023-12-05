@@ -11,7 +11,7 @@ describe('Header', () => {
     nick: 'john smith',
     username: 'john',
     avatar: 'avatar.url',
-    profileImage: 'profile-image.url',
+    'profile-image': 'profile-image.url',
   };
 
   it('should render component', () => {
