@@ -1,1 +1,13 @@
-{}
+{
+  "ignore_dirs": [
+    "node_modules",
+    "ios",
+    "android",
+    ".git",
+    "build",
+    "__tests__"
+  ],
+  "watch-empty-dirs": false,
+  "idle_reap_age_seconds": 600,
+  "settle": 1000
+}
