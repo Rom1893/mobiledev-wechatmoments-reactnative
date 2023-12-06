@@ -35,7 +35,7 @@ function TweetListComponent({tweets}: ITweetListProps): ReactElement {
   }, [onRefresh]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="tweet-container">
       <FlatList
         ListHeaderComponent={<Header />}
         data={tweets}
